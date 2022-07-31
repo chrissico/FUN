@@ -1,0 +1,24 @@
+Program          ::= Def ";" RestProgram
+RestProgram      ::= e | Def ";" RestProgram
+Def              ::= Variable Restdef Expr
+RestDef          ::= "=" | Variable Restdef
+LocDefs          ::= LocDef RestLocDefs
+RestLocDefs      ::= e | "," LocDef RestLocDefs
+LocDef           ::= Variable "=" Expr
+Expr             ::= "let" LocDefs "in" Expr
+                       | "if" Expr "then" Expr "else" Expr         
+                       | OrExpr
+OrExpr           ::= AndExpr ["|" OrExpr]
+AndExpr          ::= NotExpr ["&" AndExpr]
+NotExpr          ::= ["not"] CompareExpr
+CompareExpr      ::= AddExpr [("<" | "==") AddExpr]
+AddExpr          ::= NegExpr RestAddExpr
+RestAddExpr      ::= e | ["+" | "-"] MultExpr RestAddExpr
+NegExpr          ::= ["-"] MultExpr
+MultExpr         ::= ExpoExpr RestMultExpr
+RestMultExpr     ::= e | ["*" | "/"] ExpoExpr RestMultExpr
+ExpoExpr         ::= AtomicExpr RestExpoExpr
+RestExpoExpr     ::= e | "^" AtomicExpr RestExpoExpr
+AtomicExpr       ::= (Number | Boolean | "(" Expr ")" | Variable) RestAtomicExpr
+RestAtomicExpr   ::= e | (Number | Boolean | "(" Expr ")" | Variable) RestAtomicExpr
+Variable         ::= Name
