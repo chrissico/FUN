@@ -8,11 +8,11 @@ import Control.Exception (SomeException, try)
 letsGo :: IO ()
 letsGo = do
   putStr ("\n\n               Welcome to\n"
-       ++ "     ______   __   __   __   __   __\n"
-       ++ "    |   ___| |  | |  | |  \\ |  | |  |\n"
-       ++ "    |  |__   |  | |  | |   \\|  | |__|\n"
-       ++ "    |   __|  |  |_|  | |  |\\   |  __\n"
-       ++ "    |__|      \\_____/  |__| \\__| |__|\n\n\n"
+       ++ "      ______   __   __   __   __   __\n"
+       ++ "    /   ___/ /  / /  / /  \\ /  / /  /\n"
+       ++ "   /  /__   /  / /  / /   \\/  / /__/\n"
+       ++ "  /   __/  /  /_/  / /  /\\   /  __\n"
+       ++ " /__/      \\_____/  /__/ \\__/ /__/\n\n\n"
        ++ "This is our implementation of the functional"
        ++ "\nprogramming language F.\n\n"
        ++ "We hope you have fun with Fun  : )"
