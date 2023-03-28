@@ -1,7 +1,7 @@
 Program          ::= Def ";" RestProgram
 RestProgram      ::= e | Def ";" RestProgram
-Def              ::= Variable Restdef Expr
-RestDef          ::= "=" | Variable Restdef
+Def              ::= Variable RestDef Expr
+RestDef          ::= "=" | Variable RestDef
 LocDefs          ::= LocDef RestLocDefs
 RestLocDefs      ::= e | "," LocDef RestLocDefs
 LocDef           ::= Variable "=" Expr
